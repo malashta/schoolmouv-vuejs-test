@@ -1,9 +1,12 @@
 const Koa = require('koa');
 const koaBody = require('koa-body');
 const Router = require('koa-router');
+const cors = require('@koa/cors');
 
 const app = new Koa();
 const router = new Router();
+
+app.use(cors());
 
 router.get('/check-email', ctx => {
   if (!ctx.query.email) {
